@@ -35,6 +35,9 @@ st.set_page_config(
 # Storing API credentials in environment variables
 #os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 #os.environ["OPENAI_BASE_URL"] = OPENAI_API_BASE
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
+os.environ["OPENAI_BASE_URL"] = st.secrets["OPENAI_API_BASE"]
+print(os.environ["OPENAI_BASE_URL"])
 
 # ── LLMs ─────────────────────────────────────────────────────────────────────
 @st.cache_resource
