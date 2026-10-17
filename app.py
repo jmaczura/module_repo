@@ -28,13 +28,13 @@ st.set_page_config(
 #    config = json.load(file)
 #    OPENAI_API_KEY = config.get("OPENAI_API_KEY") # Loading the API Key
 #    OPENAI_API_BASE = config.get("OPENAI_API_BASE") # Loading the API Base Url
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-OPENAI_API_BASE = os.environ.get("OPENAI_API_BASE")
+#OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+#OPENAI_API_BASE = os.environ.get("OPENAI_API_BASE")
 
 
 # Storing API credentials in environment variables
-os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
-os.environ["OPENAI_BASE_URL"] = OPENAI_API_BASE
+#os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
+#os.environ["OPENAI_BASE_URL"] = OPENAI_API_BASE
 
 # ── LLMs ─────────────────────────────────────────────────────────────────────
 @st.cache_resource
