@@ -37,7 +37,7 @@ st.set_page_config(
 #os.environ["OPENAI_BASE_URL"] = OPENAI_API_BASE
 os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 os.environ["OPENAI_BASE_URL"] = st.secrets["OPENAI_API_BASE"]
-print(os.environ["OPENAI_BASE_URL"])
+#print(os.environ["OPENAI_BASE_URL"])
 
 # ── LLMs ─────────────────────────────────────────────────────────────────────
 @st.cache_resource
@@ -537,7 +537,7 @@ if not st.session_state.chat_active:
                 "content": (
                     f"Hi! I'm your Kartify support assistant. "
                     f"I can see you're asking about order **{selected_order_id}**. "
-                    f"How can I help you today?"
+                    f"How can I help you today? {os.environ["OPENAI_BASE_URL"]}"
                 ),
             })
             st.rerun()
