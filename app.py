@@ -484,6 +484,7 @@ if not st.session_state.chat_active:
             placeholder="e.g. C1010",
             value=st.session_state.cust_id,
         )
+        cust_input = cust_input.upper()
         submitted = st.form_submit_button("🔍  Fetch Orders", use_container_width=True)
 
     if submitted and cust_input.strip():
