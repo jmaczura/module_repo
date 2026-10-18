@@ -392,11 +392,12 @@ if "orders_df" not in st.session_state:
 # ── Helper: fetch customer orders ─────────────────────────────────────────────
 def fetch_customer_orders(cust_id: str) -> pd.DataFrame | None:
     try:
+        cleaned_cust_id = cust_id.strip().upper()
         with sqlite3.connect("kartify.db") as conn:
             df = pd.read_sql_query(
                 "SELECT order_id, product_description, order_status FROM orders WHERE customer_id = ?",
                 conn,
-                params=(cust_id.strip(),),
+                params=(cleaned_cust_id,),
             )
         return df if not df.empty else None
     except Exception:
@@ -537,7 +538,7 @@ if not st.session_state.chat_active:
                 "content": (
                     f"Hi! I'm your Kartify support assistant. "
                     f"I can see you're asking about order **{selected_order_id}**. "
-                    f"How can I help you today? {os.environ["OPENAI_BASE_URL"]}"
+                    f"How can I help you today?"
                 ),
             })
             st.rerun()
